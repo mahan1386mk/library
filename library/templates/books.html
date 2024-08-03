@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>کتاب‌ها</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>کتاب‌ها</h2>
+    <ul>
+        {% for book in books %}
+        <li>
+            <a href="{{ url_for('view_pdf', book_id=book['_id']) }}">{{ book['title'] }} - {{ book['author'] }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_book') }}">افزودن کتاب جدید</a>
+</body>
+</html>

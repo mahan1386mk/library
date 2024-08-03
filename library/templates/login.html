@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form method="POST" action="/login">
+        <h2>ورود</h2>
+        <label for="username">نام کاربری:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">رمز عبور:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">ورود</button>
+        <a href="/register" class="switch-form-link">ثبت‌نام</a>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

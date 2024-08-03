@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book['title'] }}</title>
+</head>
+<body>
+    <h2>{{ book['title'] }} - {{ book['author'] }}</h2>
+    <iframe src="{{ url_for('static', filename='pdfs/' + book['pdf_file']) }}" width="100%" height="800px"></iframe>
+    <a href="{{ url_for('books') }}">بازگشت به فهرست کتاب‌ها</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت‌نام</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form method="POST" action="/register">
+        <label for="username">نام کاربری:</label>
+        <input type="text" id="username" name="username" value="{{ username }}" required>
+        <label for="password">رمز عبور:</label>
+        <input type="password" id="password" name="password" value="{{ password }}" required>
+        <button type="submit">ثبت‌نام</button>
+        <a href="/login" class="switch-form-link">بازگشت به ورود</a>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
